@@ -97,6 +97,19 @@ public class Main extends javax.swing.JFrame {
             }
         });
         
+        jButton3.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu m=new Menu(F);
+                f.removeAll();
+                m.setBounds(0, 0, 780, 480);
+                f.add(m);
+                f.setVisible(true);
+                f.updateUI();
+            }
+        });
+        
         jButton8.addActionListener(new ActionListener() {
 
             @Override

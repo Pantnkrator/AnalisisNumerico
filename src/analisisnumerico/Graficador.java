@@ -5,6 +5,7 @@
  */
 package analisisnumerico;
 
+import java.awt.BorderLayout;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -16,12 +17,13 @@ import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
 import java.awt.Dimension;
+import javax.swing.JFrame;
 
 /**
  *
  * @author toto
  */
-public class Graficador extends ApplicationFrame{
+public class Graficador{
 public static String convertir(Funcion F, double x){
     String S="";
     String q="("+Double.toString(x)+")";
@@ -36,12 +38,23 @@ public static String convertir(Funcion F, double x){
     }
     
     public Graficador(Funcion F,double lower, double upper){
-        super("Graficador");
+        //super("Graficador");
+        JFrame f= new JFrame("Grafica");
+        f.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        f.setLayout(new BorderLayout(0, 5));
+        
         XYDataset paresDeDatos = generarDatos(F,lower,upper);
         JFreeChart diagrama = crearDiagrama(paresDeDatos);
         ChartPanel chartPanel = new ChartPanel(diagrama);
         chartPanel.setPreferredSize(new Dimension(500,400));
-        setContentPane(chartPanel);
+        //setContentPane(chartPanel);
+        f.add(chartPanel, BorderLayout.CENTER);
+        chartPanel.setMouseWheelEnabled(true);
+        chartPanel.setHorizontalAxisTrace(true);
+        chartPanel.setVerticalAxisTrace(true);
+        f.pack();
+        f.setLocationRelativeTo(null);
+        f.setVisible(true);
     }
  
     private XYDataset generarDatos(Funcion F,double lower,double upper){

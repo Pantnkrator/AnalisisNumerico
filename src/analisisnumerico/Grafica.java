@@ -27,9 +27,9 @@ public class Grafica extends javax.swing.JPanel {
                 double lower=Double.parseDouble(jTextField1.getText().trim());
                 double upper=Double.parseDouble(jTextField2.getText().trim());
                 Graficador miGraficador = new Graficador(F,lower,upper);
-                miGraficador.pack();
-                RefineryUtilities.centerFrameOnScreen(miGraficador);
-                miGraficador.setVisible(true);
+                //miGraficador.pack();
+                //RefineryUtilities.centerFrameOnScreen(miGraficador);
+                //miGraficador.setVisible(true);
             }
         });
     }
@@ -78,8 +78,8 @@ public class Grafica extends javax.swing.JPanel {
                             .addGap(220, 220, 220)
                             .addComponent(jButton1)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(163, 163, 163)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(313, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
