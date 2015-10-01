@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class SecanteResultado extends javax.swing.JPanel {
     public static String convertir(Funcion F, double x){
     String S="";
-    String q=Double.toString(x);
+    String q="("+Double.toString(x)+")";
     String f=F.getF();
     for(int i=0; i<f.length(); i++){
         if(f.charAt(i)=='x'){
