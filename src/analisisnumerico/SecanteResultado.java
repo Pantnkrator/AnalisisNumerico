@@ -13,19 +13,6 @@ import javax.swing.JOptionPane;
  */
 
 public class SecanteResultado extends javax.swing.JPanel {
-    public static String convertir(Funcion F, double x){
-    String S="";
-    String q="("+Double.toString(x)+")";
-    String f=F.getF();
-    for(int i=0; i<f.length(); i++){
-        if(f.charAt(i)=='x'){
-            S+=q;
-        }else
-            S+=f.charAt(i);
-    }
-    return S;
-    }
-    
     /**
      * Creates new form SecanteResultado
      */
@@ -34,23 +21,17 @@ public class SecanteResultado extends javax.swing.JPanel {
         String f=F.getF();
         System.out.println(f);
         Evaluador e=new Evaluador();
-        String l=convertir(F, lower);
-        String u=convertir(F, upper);
-        double fl=e.eval(l);
-        double fu=e.eval(u);
+        double fl=e.eval(f, lower);
+        double fu=e.eval(f, upper);
         double mid= upper-((fu)*(upper-lower))/(fu-fl);
-        String m=convertir(F, mid);
-        double fm=e.eval(m);
+        double fm=e.eval(f, mid);
         while(Math.abs(fm)>eps){
             lower=upper;
             upper=mid;
-            l=convertir(F, lower);
-            u=convertir(F, upper);
-            fl=e.eval(l);
-            fu=e.eval(u);
+            fl=e.eval(f, lower);
+            fu=e.eval(f, upper);
             mid=upper-((fu)*(upper-lower))/(fu-fl);
-            m=convertir(F, mid);
-            fm=e.eval(m);
+            fm=e.eval(f, mid);
         }
         JOptionPane.showMessageDialog(null, "Una raiz es :"+mid);
         Menu v = new Menu(F);

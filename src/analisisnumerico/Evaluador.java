@@ -18,7 +18,17 @@ import java.util.Scanner;
 public class Evaluador {
     private JEP jep; 
     private double valor; 
-    
+    public static String convertir(String f, double x){
+        String S="";
+        String q="("+Double.toString(x)+")";
+        for(int i=0; i<f.length(); i++){
+            if(f.charAt(i)=='x'){
+                S+=q;
+            }else
+                S+=f.charAt(i);
+        }
+        return S;
+    }
     public Evaluador(){ 
         jep=new JEP(); 
 // Permite utilizar las constantes "pi" y "e". 
@@ -30,7 +40,8 @@ public class Evaluador {
         jep.setImplicitMul(true); 
 } 
 
-    public double eval(String expresion){ 
+    public double eval(String expresion, double x){
+        expresion=convertir(expresion, x);
 // Evalua la expresion, si es posible se convertirá en un valor numérico. 
         jep.parseExpression(expresion);
 // Obtiene el valor de la "expresión" con la función "getValue()". 

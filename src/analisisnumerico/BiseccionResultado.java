@@ -5,29 +5,13 @@
  */
 package analisisnumerico;
 
-import static analisisnumerico.SecanteResultado.convertir;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author toto
  */
-public class BiseccionResultado extends javax.swing.JPanel {
-
-    public static String convertir(Funcion F, double x){
-    String S="";
-    String q="("+Double.toString(x)+")";
-    String f=F.getF();
-    for(int i=0; i<f.length(); i++){
-        if(f.charAt(i)=='x'){
-            S+=q;
-        }else
-            S+=f.charAt(i);
-    }
-    return S;
-    }
-    
-    
+public class BiseccionResultado extends javax.swing.JPanel {    
     /**
      * Creates new form BiseccionResultado
      */
@@ -36,10 +20,8 @@ public class BiseccionResultado extends javax.swing.JPanel {
         String f=F.getF();
         System.out.println(f);
         Evaluador e=new Evaluador();
-        String l=convertir(F, lower);
-        String u=convertir(F, upper);
-        double fl=e.eval(l);
-        double fu=e.eval(u);
+        double fl=e.eval(f,lower);
+        double fu=e.eval(f, upper);
         boolean sw=true;
         System.out.println(fl+"   "+fu);
         if(fl*fu>0){
@@ -47,19 +29,15 @@ public class BiseccionResultado extends javax.swing.JPanel {
             sw=false;
         }
         double mid= (upper+lower)/2;
-        String m=convertir(F, mid);
-        double fm=e.eval(m);
+        double fm=e.eval(f, mid);
         //jTextField1.setText("a  |  b  |  c  |  f(a)  |  f(b)  |  f(c)\n");
         while(Math.abs(fm)>eps && sw){
             //jTextField1.setText(jTextField1.getText()+lower+"  "+upper+"  "+mid+"  "+fl+"  "+fu+"  "+fm+"\n" );
             System.out.println(mid);
             mid=(lower+upper)/2;
-            l=convertir(F, lower);
-            u=convertir(F, upper);
-            fl=e.eval(l);
-            fu=e.eval(u);
-            m=convertir(F, mid);
-            fm=e.eval(m);
+            fl=e.eval(f, lower);
+            fu=e.eval(f, upper);
+            fm=e.eval(f, mid);
              if(fl*fm>0)
                  lower=mid;
              else
@@ -67,13 +45,12 @@ public class BiseccionResultado extends javax.swing.JPanel {
         }
         if(sw)
             JOptionPane.showMessageDialog(null, "Una raiz es :"+(lower+upper)/2);
-            
         Menu v = new Menu(F);
-                removeAll();
-                v.setBounds(0, 0, 780, 480);
-                add(v);
-                v.setVisible(true);
-                updateUI();
+        removeAll();
+        v.setBounds(0, 0, 780, 480);
+        add(v);
+        v.setVisible(true);
+        updateUI();
         
     }
 

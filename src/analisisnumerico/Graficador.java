@@ -23,20 +23,7 @@ import javax.swing.JFrame;
  *
  * @author toto
  */
-public class Graficador{
-public static String convertir(Funcion F, double x){
-    String S="";
-    String q="("+Double.toString(x)+")";
-    String f=F.getF();
-    for(int i=0; i<f.length(); i++){
-        if(f.charAt(i)=='x'){
-            S+=q;
-        }else
-            S+=f.charAt(i);
-    }
-    return S;
-    }
-    
+public class Graficador{    
     public Graficador(Funcion F,double lower, double upper){
         //super("Graficador");
         JFrame f= new JFrame("Grafica");
@@ -85,7 +72,6 @@ public static String convertir(Funcion F, double x){
     //aqui definimos la funcion que desees, en esta caso la f(x) = 4sen(x)
     private double f(double x, Funcion F){
         Evaluador e=new Evaluador();
-        String fx=convertir(F, x);
-        return e.eval(fx);
+        return e.eval(F.getF(), x);
     }    
 }

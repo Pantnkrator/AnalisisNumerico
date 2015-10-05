@@ -23,18 +23,6 @@ public class NewtonResultado extends javax.swing.JPanel {
      */
     
     
-    public static String convertir(Funcion F, double x){
-    String S="";
-    String q="("+Double.toString(x)+")";
-    String f=F.getF();
-    for(int i=0; i<f.length(); i++){
-        if(f.charAt(i)=='x'){
-            S+=q;
-        }else
-            S+=f.charAt(i);
-    }
-    return S;
-    }
     
     public NewtonResultado(Funcion F, double inicial, double eps) {
         initComponents();
@@ -68,22 +56,14 @@ public class NewtonResultado extends javax.swing.JPanel {
             //imprime la función
             // j.println(simp);
         } catch(ParseException e){ e.printStackTrace();}
-        
-        Funcion diff=new Funcion();
-        diff.setF(derivada);
-        
         String f=F.getF();
         System.out.println(f);
         Evaluador e=new Evaluador();
-        String i=convertir(F, inicial);
-        String di=convertir(diff, inicial);
-        double fi=e.eval(i);
-        double fdi=e.eval(di);
+        double fi=e.eval(f,inicial);
+        double fdi=e.eval(derivada, inicial);
         while(Math.abs(fi)>eps){
-            i=convertir(F, inicial);
-            di=convertir(diff, inicial);
-            fi=e.eval(i);
-            fdi=e.eval(di);
+            fi=e.eval(f, inicial);
+            fdi=e.eval(derivada, inicial);
             inicial=inicial-(fi/fdi);
         }
         JOptionPane.showMessageDialog(null, "Una raiz es :"+inicial);

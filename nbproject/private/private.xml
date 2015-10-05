@@ -3,10 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/home/toto/Projects/NetBeansProjects/AnalisisNumerico/src/analisisnumerico/NewtonResultado.java</file>
+            <file>file:/home/toto/Projects/NetBeansProjects/AnalisisNumerico/src/analisisnumerico/SecanteResultado.java</file>
             <file>file:/home/toto/Projects/NetBeansProjects/AnalisisNumerico/src/analisisnumerico/Main.java</file>
-            <file>file:/home/toto/Projects/NetBeansProjects/AnalisisNumerico/src/analisisnumerico/Grafica.java</file>
             <file>file:/home/toto/Projects/NetBeansProjects/AnalisisNumerico/src/analisisnumerico/Graficador.java</file>
             <file>file:/home/toto/Projects/NetBeansProjects/AnalisisNumerico/src/analisisnumerico/BiseccionResultado.java</file>
+            <file>file:/home/toto/Projects/NetBeansProjects/AnalisisNumerico/src/analisisnumerico/Evaluador.java</file>
         </group>
     </open-files>
 </project-private>
