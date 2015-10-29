@@ -135,6 +135,18 @@ public class Main extends javax.swing.JFrame {
                 
             }
         });
+        jButton4.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SistemasEcuaciones m= new SistemasEcuaciones();
+                f.removeAll();
+                m.setBounds(0, 0, 780, 480);
+                f.add(m);
+                f.setVisible(true);
+                f.updateUI();
+            }
+        });
     }
 
     /**
